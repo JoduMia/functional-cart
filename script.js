@@ -137,6 +137,12 @@ function calPrice(listenid, innertextid, countingId, isIncrease) {
             const finalPrice = itemNum * priceValue;
             price.innerText = finalPrice;
         }
+        const subtotal = document.getElementById('subtotal');
+        const tax = document.getElementById('tax');
+        const finalTotalValues = parseFloat(document.getElementById('price1').innerText) + parseFloat(document.getElementById('price2').innerText);
+        subtotal.innerText = finalTotalValues;
+        tax.innerText = Math.ceil(finalTotalValues * .15);
+        total.innerText = finalTotalValues + Math.ceil(finalTotalValues * .15);
     });
 }
 calPrice('plus', 'price1', 'count', true);
@@ -144,5 +150,14 @@ calPrice('minus', 'price1', 'count', false);
 
 calPrice('plus2', 'price2', 'count2', true);
 calPrice('minus2', 'price2', 'count2', false);
+
+
+const subtotal = document.getElementById('subtotal');
+const tax = document.getElementById('tax');
+const total = document.getElementById('total');
+const finalTotalValues = parseFloat(document.getElementById('price1').innerText) + parseFloat(document.getElementById('price2').innerText);
+subtotal.innerText = finalTotalValues;
+tax.innerText = Math.ceil(finalTotalValues * .015);
+total.innerText = finalTotalValues + Math.ceil(finalTotalValues * .015);
 
 
